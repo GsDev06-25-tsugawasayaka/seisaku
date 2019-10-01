@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="content-language" content="ja">
+		<meta http-equiv="content-style-type" content="text/css">
+        <link rel="stylesheet" href="style.css">
+		<meta http-equiv="content-script-type" content="text/javascript">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="jquery.exif.js"></script>
+<script >
+$(function(){
+    var arry = [];
+    var oriDate = JSON.parse(localStorage.getItem("imgType"));
+	$('#icon').change(function() {
+     $("#first").removeClass("disnon");
+        //写真のプレビューを出す
+	if ( !this.files.length ) {
+	  return;
+	}
+	$('#preview').text('');
+
+	var $files = $(this).prop('files');
+	var len = $files.length;
+	for ( var i = 0; i < len; i++ ) {
+	  var file = $files[i];
+	  var fr = new FileReader();
+		  fr.onload = function(e) {
+			var src = e.target.result;
+			var img = '<img class="createImg" src="'+ src +'">';
+			$('#preview').append(img).css("max-width","500px");
+		  }
+	  fr.readAsDataURL(file);
+	}
+	$('#preview').css('display','block');
+		// アップロードファイルからExif情報を抜出す。
+		$(this).fileExif(function(exif) {
+			//console.log(exif);
+			$(function(){
+						//var dt = exif.Model;
+						var DateTimeOriginal = exif.DateTimeOriginal;
+						var ExposureTime = exif.ExposureTime;
+						var ISOSpeedRatings = exif.ISOSpeedRatings;
+						var FocalLength = exif.FocalLength;
+						var WhiteBalance = exif.WhiteBalance;
+						var Model = exif.Model;
+						var Flash = exif.Flash;
+						var FNumber = exif.FNumber;
+
+                $("#hozon").html('<span class="nameTxt">' + DateTimeOriginal + 'に撮った写真を保存</span>');
+                $("#meta").on("click",function(){
+						$("#preview").append('<p class="exifTxt">' + '撮影日時 : ' + DateTimeOriginal + '<br>' +
+							'露出時間 : ' + ExposureTime + ' (1/' + (1 / ExposureTime) + ') 秒<br>' +
+							'ISO感度 : ' + ISOSpeedRatings + '<br>' +
+							'絞り : ' + FNumber + '<br>' +
+							'焦点距離 : ' + FocalLength + '<br>' +
+							'ホワイトバランス : ' + WhiteBalance + '<br>' +
+							'カメラモデル : ' + Model + '<br>' +
+							'フラッシュ : ' + Flash +
+						'</p>');
+                    $("#meta").html('<p id="nonmeta">メタ情報を隠す</p>');
+                    $("#nonmeta").on("click",function(){
+                        $("#preview").addClass("aaa");
+                    });
+                    });
+                });
+             });
+	});
+
+
+
+    $("#hozon").on("click",function(){
+
+//        console.log(localStorage.getItem('imgType'));
+        if(localStorage.getItem('imgType')){
+            arry = JSON.parse(localStorage.getItem('imgType'));
+        }else{
+            arry = [];
+        }
+
+
+        var previewImg = $('.createImg').attr('src');
+        var imgTtl = $('#icon').val();
+        var obj = {
+                    title: imgTtl,
+                    value: previewImg
+                    };
+        arry.push(obj);
+        console.log(JSON.stringify(arry));
+
+       localStorage.setItem('imgType',JSON.stringify(arry));
+    });
+ $("#delBtn").on("click",function(){
+//    //データの取得
+    var oriDate = JSON.parse(localStorage.getItem("imgType"));
+    var storeSrc = oriDate.value;
+
+     $("#store").html('<img src="' + storeSrc + '">');
+
+     //$("#pic01").attr("src",storeSrc);
+ });
+//deleat
+	$("#kesu").on("click",function(){
+
+		 localStorage.removeItem("imgType");
+
+	});
+
+ });
+
+		</script>
+
+		<title>Exif-JS Demo</title>
+	</head>
+	<body>
+	<h1>EXIF</h1>
+	<section>
+       <h1>保存したい写真を選択</h1>
+       <div class="waku1">
+            <form action="/uploads" enctype="multipart/form-data">
+              <label for="file_photo">
+                ＋写真を選択
+                <input type="file" id="icon" name="icon" multiple="multiple" accept="image/*">
+                </label>
+            </form>
+            </div>
+        <div class="disnon" id="first">
+            <div id="preview" style="display:none"></div>
+            <p id="meta">メタ情報を表示</p><p id="hozon"></p>
+
+             <div class="btns">
+                <p id="delBtn">保存した物</p>
+                <p id="kesu">削除</p>
+                <div id="store">
+                </div>
+           </div>
+        </div>
+        </section>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
