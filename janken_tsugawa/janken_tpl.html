@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<title>じゃんけん</title>
+<script>
+$(document).ready(function(){
+//ここにJSを記述
+ //制限時間   
+    setTimeout(function() {
+    $(".wrap").fadeOut();
+        $("header > h1").html("<p>時間切れ！！！</p>");
+}, 45000);
+    
+//pcのじゃんけんを決める
+    var pc_kekka =document.querySelector("#step1");
+    var com = function (){
+        $('<p>あなたは何を出す？</p>').appendTo("#pcgawa").hide().fadeIn(1000);
+    };
+        pc_kekka.onclick = function(){
+            var kikai = Math.floor( Math.random() * 3 + 1);
+            //じゃんけんの候補を出す
+            $("#dmmy").addClass("active");
+            $("#pcTtl").fadeIn("slow");
+
+            //自分の手をきめる
+            var pcgawa = document.querySelector("#pcgawa");
+            var num = document.querySelector("#num");
+                if(kikai == 1){
+                    pcgawa.innerHTML = "グー";
+                    //$('<p>あなたは何を出す？</p>').appendTo("#pcgawa").hide().fadeIn(1000);
+                    com();
+                    $("#dmmy li").on("click",function(){
+                        var osita = $(this).text();
+                       if(osita == "グー"){ 
+                           num.innerHTML = "あいこ";
+                            }
+                            else if(osita == "チョキ"){
+                                num.innerHTML = "残念";
+                            }else if(osita == "パー"){
+                                num.innerHTML = "かち";
+                            }else{
+                                num.innerHTML = "";
+                            }
+                        });
+                }
+                else if (kikai == 2){
+                    pcgawa.innerHTML = "チョキ";
+                    com();
+                    $("#dmmy li").on("click",function(){
+                        var osita = $(this).text();
+                       if(osita == "グー"){ 
+                           num.innerHTML = "残念";
+                            }
+                            else if(osita == "チョキ"){
+                                num.innerHTML = "あいこ";
+                            }else if(osita == "パー"){
+                                num.innerHTML = "かち";
+                            }else{
+                                num.innerHTML = "";
+                            }
+                        });
+                }
+                else if (kikai == 3){
+                    pcgawa.innerHTML = "パー";
+                    com();
+                    $("#dmmy li").on("click",function(){
+                        var osita = $(this).text();
+                       if(osita == "グー"){ 
+                           num.innerHTML = "まけ";
+                            }
+                            else if(osita == "チョキ"){
+                                num.innerHTML = "残念";
+                            }else if(osita == "パー"){
+                                num.innerHTML = "あいこ";
+                            }else{
+                                num.innerHTML = "";
+                            }
+                        });
+                }
+    };
+
+});
+</script>
+</head>
+<body>
+
+<header>
+  <h1>ジャンケンをしましょう</h1>
+    
+</header>
+<div class="wrap">
+
+<main>
+<p class="txt">先にコンピューターがだすので､後出しじゃんけんです｡<br>
+    必ず勝てます！ただし制限時間があるので､素早く選んでください｡</p>
+<p id="step1">START</p>
+ <div id="pc">
+     <p id="pcTtl">コンピュータの出した手は？</p>
+         <p id="pcgawa"></p>
+         
+</div>
+ <div class="waku">
+  <ul id="dmmy" class="">
+    
+    <li id="cho_btn">チョキ</li>
+    <li class="dam">グ</li>
+    <li class="dam">チョキ</li>
+    <li class="dam">クー</li>
+    <li class="dam">パパ</li>
+    <li class="dam">チョコ</li>
+    <li class="dam">バー</li>
+    <li class="dam">チヨキ</li>
+    <li class="dam">チョキ</li>
+    <li class="dam">クー</li>
+    <li class="dam">パパ</li>
+    <li class="dam">チョコ</li>
+    <li class="dam">バー</li>
+    <li id="gu_btn">グー</li>
+    <li class="dam">チョキ</li>
+    <li class="dam">クー</li>
+    <li id="par_btn">パー</li>
+    <li class="dam">パパ</li>
+    <li class="dam">チョコ</li>
+    <li class="dam">バー</li>
+    <li class="dam">チヨキ</li>
+  </ul>
+ </div>   
+  <div id="num"></div>
+</main>
+    </div>
+<footer></footer>
+
+</body>
+</html>
