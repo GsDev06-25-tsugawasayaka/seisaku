@@ -1,0 +1,72 @@
+
+input#aka {
+    display: inline-block;
+    position:relative;
+}
+input#aka:before{
+    content:"赤色フィルター";
+   color:red;
+   font-weight:bold;
+   position:absolute;
+   left:0;
+   top:-2em;
+}
+input#ao {
+    display: inline-block;
+    position:relative;
+}
+input#ao:before{
+    content:"青色フィルター";
+   color:red;
+   font-weight:bold;
+   position:absolute;
+   left:0;
+   top:-2em;
+}
+input#midori {
+    display: inline-block;
+    position:relative;
+}
+input#midori:before{
+    content:"緑色フィルター";
+   color:red;
+   font-weight:bold;
+   position:absolute;
+   left:0;
+   top:-2em;
+}
+
+div#waku {
+    padding: 4% 2%;
+}
+	#canvas{
+	border:1px solid brown;
+		}
+p#irodetail {
+    width: 50%;
+    height: 100px;
+    overflow: scroll;
+    font-size: 10px;
+    line-height: 1;
+    border: 2px solid #b38787;
+    padding: 1%;
+}
+p#irodetail {
+    width: 50%;
+    height: 100px;
+    overflow: scroll;
+    font-size: 10px;
+    line-height: 1;
+    border: 2px solid #b38787;
+    padding: 1%;
+}
+p#irodetail {
+    width: 50%;
+    height: 100px;
+    overflow: scroll;
+    font-size: 10px;
+    line-height: 1;
+    border: 2px solid #b38787;
+    padding: 1%;
+    word-wrap: break-word;
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>kadai</title>
+
+    <link rel="stylesheet" href="style.css">
+<script src="js/jquery-2.1.3.min.js"></script>
+
+
+<script type="text/javascript">
+$(function(){
+	var can = $("#canvas")[0];
+	var ctx = can.getContext("2d");
+	var imgHeight;
+    var firstpixels;
+    var img = new Image();
+    
+      //写真のプレビューを出す
+  $('#icon').change(function(){
+      //ファイルが選択されていなければ何もしない
+       if ( !this.files.length ) {
+         return;
+       }
+   var ifiles = $(this).prop('files');
+   var len = ifiles.length;
+   for ( var i = 0; i < len; i++ ) {
+     var file = ifiles[i];
+     var fr = new FileReader();
+            fr.onload = function(e) {
+             var src = e.target.result;
+             //var img = new Image();
+             img.src = src;
+                //console.log(img);
+                 img.onload = function() {
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    ctx.drawImage(img, 0, 0, img.width, img.height);
+                 }
+            }
+     fr.readAsDataURL(file);
+//    var canWidth = $("#canvas").width();
+//    var canHeight = $("#canvas").height();
+//    var firstpixels = ctx.getImageData(0, 0, canWidth, canHeight);
+//       console.log(firstpixels);
+    
+   }
+  });
+
+// getImageDataメソッドを用いることで、
+// Canvas上のPixelにアクセスする事ができる
+//赤黄青のどれを押したかをとってくる
+$("#waku input").on("change",function(){
+    
+  var index = $(this).index();
+    console.log(index);
+    var canWidth = $("#canvas").width();
+    var canHeight = $("#canvas").height();
+    var pixels = ctx.getImageData(0, 0, canWidth, canHeight);
+    var d = pixels.data;
+        for (var i = 0; i < d.length; i+=4) {
+            if(index == 0){
+                d[i]   += $(this).val(); 
+            }
+            else if (index == 1){
+                d[i+1] += $(this).val();   // g
+            }
+            else if (index == 2){
+                d[i+2] += $(this).val();   // b
+            };
+        };
+ctx.putImageData(pixels, 0, 0);
+    });
+$("#irodetail").on('click',function(){
+    
+    var pixels = ctx.getImageData(0, 0, canWidth, canHeight);
+    var d = pixels.data;
+    for (var i = 0; i < d.length; i+=4) {
+        var r = d[i];
+        var g = d[i+1];
+        var b = d[i+2];
+        var a = d[i+3];
+    }
+    $("#irodetail").text(d);
+});
+
+//$("#riset").on('click',function(){
+//    ctx.putImageData(firstpixels, 10, 10);
+//
+//});
+$("#hozon").on("click", function(){
+    var imgDisplay =  $('#imgDisplay');
+    var datalist = {};
+    var p=0;
+
+    var d = new Date();
+    d = d.toLocaleString();
+    datalist[d] =  can.toDataURL();
+
+    //console.log(datalist)
+    var objLength = Object.keys(datalist).length;
+
+        var li = '';
+    for (var key in datalist) {
+        p++;
+        if(objLength > 3 && p == 1){
+            delete datalist[key];
+            continue;
+        }
+            if (datalist.hasOwnProperty(key)) {
+                    var value = datalist[key];
+
+
+                    li += '<li><img src="' + value + '"></li>';
+            }
+        }
+                 imgDisplay.html(li);
+    localStorage.setItem("canImage",JSON.stringify(datalist));
+
+});
+//
+$("#prev").on("click",function(){
+    var imgDisplay =  $('#imgDisplay');
+    var p=0;
+    var can = $("#drowarea")[0];
+	var ctx2 = can.getContext("2d");
+    //var dataURL = localStorage.getItem("canImage");
+    var datalist = JSON.parse(localStorage.getItem("canImage"));
+    var objLength = Object.keys(datalist).length;
+
+    //var base64 = can.toDataURL();
+        var li = '';
+    for (var key in datalist) {
+        p++;
+        if(objLength > 3 && p == 1){
+            delete datalist[key];
+            continue;
+        }
+            if (datalist.hasOwnProperty(key)) {
+                    var value = datalist[key];
+
+
+                    li += '<li><img src="' + value + '"></li>';
+            }
+        }
+                 imgDisplay.html(li);
+});
+  $("#clear").on('click',function(){ 
+    localStorage.clear();
+  });
+    
+
+});
+</script>
+</head>
+<body>
+
+<div class="range-group">
+    
+
+<!--<input class="input-range" type="range" min="1" max="5" value="25" tabindex="0" id="rangeBar">-->
+</div>
+  <input type="file" id="icon" name="icon" multiple="multiple" accept="image/*">
+
+	
+    <canvas id="canvas" width="500" height="300"></canvas>
+    
+    <div id="waku">
+        
+        <input type="range" name="example" step="1" min="0" max="10" id="aka">
+        <input type="range" name="example" step="1" min="0" max="10" id="midori">
+        <input type="range" name="example" step="1" min="0" max="10" id="ao">
+<!--        <p id="riset">ridet</p>-->
+
+    </div>
+    
+    <p id="irodetail">色をピクセル単位で表示(数秒かかります)</p>
+    
+    <ul>
+        <li id="hozon">画像を保存</li>
+        <li id="clear">保存した画像を消す</li>
+    </ul>
+
+        
+        <ul id="imgDisplay"></ul>
+
+
+</body>
+</html>
