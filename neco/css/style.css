@@ -1,0 +1,548 @@
+/*
+    DJANGO Admin styles
+*/
+
+
+/*@import url(fonts.css);*/
+
+
+/*fonts*/
+
+@font-face {
+    font-family: 'ic';
+    src: url('../fonts/ic.eot?w2pzm3');
+    src: url('../fonts/ic.eot?w2pzm3#iefix') format('embedded-opentype'), url('../fonts/ic.ttf?w2pzm3') format('truetype'), url('../fonts/ic.woff?w2pzm3') format('woff'), url('../fonts/ic.svg?w2pzm3#ic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icn-"],
+[class*=" icn-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'ic' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icn-calendar:before {
+    content: "\e900";
+}
+
+.icn-medical-temperature-control-tool:before {
+    content: "\e901";
+}
+
+.icn-bowl:before {
+    content: "\e902";
+}
+
+.icn-weight:before {
+    content: "\e903";
+}
+
+.icn-home3:before {
+    content: "\e904";
+}
+
+.icn-clock:before {
+    content: "\e94e";
+    color: #a27373;
+}
+
+.icn-bubble2:before {
+    content: "\e96e";
+}
+
+.icn-stats-dots:before {
+    content: "\e99b";
+}
+
+.icn-attachment:before {
+    content: "\e9cd";
+}
+
+.icn-heart:before {
+    content: "\e9da";
+}
+
+.icn-smile:before {
+    content: "\e9e1";
+}
+
+.icn-tongue:before {
+    content: "\e9e3";
+}
+
+.icn-sad:before {
+    content: "\e9e5";
+}
+
+.icn-wink:before {
+    content: "\e9e7";
+}
+
+.icn-grin:before {
+    content: "\e9e9";
+}
+
+.icn-cool:before {
+    content: "\e9eb";
+}
+
+.icn-angry:before {
+    content: "\e9ed";
+}
+
+.icn-evil:before {
+    content: "\e9ef";
+}
+
+.icn-shocked:before {
+    content: "\e9f1";
+}
+
+.icn-baffled:before {
+    content: "\e9f3";
+}
+
+.icn-confused:before {
+    content: "\e9f5";
+}
+
+.icn-neutral:before {
+    content: "\e9f7";
+}
+
+.icn-hipster:before {
+    content: "\e9f9";
+}
+
+.icn-wondering:before {
+    content: "\e9fb";
+}
+
+.icn-crying:before {
+    content: "\ea01";
+}
+
+.icn-plus:before {
+    content: "\ea0a";
+}
+
+.icn-circle-up:before {
+    content: "\ea41";
+}
+
+.icn-circle-right:before {
+    content: "\ea42";
+}
+
+.icn-circle-down:before {
+    content: "\ea43";
+}
+
+.icn-circle-left:before {
+    content: "\ea44";
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    color: #333;
+    background: #f3e1e1;
+}
+
+small {
+    font-size: 80%;
+}
+
+article a {
+    text-decoration: none;
+    color: #555;
+    display: block;
+    position: relative;
+}
+
+ul.gnav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    background: #bdbdbd;
+}
+
+ul.gnav li {
+    display: inline-block;
+    letter-spacing: 1px;
+    width: 30%;
+    text-align: center;
+    position: relative;
+}
+
+ul.gnav li:not(:last-of-type):after {
+    content: "|";
+    position: absolute;
+    right: 0;
+    top: 1.2vw;
+    color: rgba(0, 0, 0, 0.4);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+ul.gnav li a {
+    display: block;
+    line-height: 2;
+    text-decoration: none;
+    color: #fff;
+    color: rgba(0, 0, 0, 0.4);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+article.dashbord h1 {
+    font-size: 4vw;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background: #bdbdbd;
+    color: rgba(0, 0, 0, 0.4);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+section.karteList h1 {
+    font-size: 6vw;
+    /* text-align: center; */
+    background: #fcffda;
+    /* margin-bottom: 4vw; */
+    /* padding: 3vw 0 0; */
+    color: #656565;
+    color: rgba(101, 69, 16, 0.51);
+    line-height: 1.5;
+    text-indent: 1em;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+section.karteList {
+    /* background: #fcffda; */
+    background: #f3e1e1;
+}
+
+figure.neko img {
+    display: block;
+    border-radius: 50%;
+    margin: 0 auto;
+    border: 5px solid #fcffda;
+    border-style: double;
+}
+
+.topics figure img {
+    width: 70%;
+    display: block;
+    margin: 0 auto 1vw;
+}
+
+.personal {}
+
+.topics {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #f3e1e1 url(../img/net.png);
+    padding: 2vw 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: distribute;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+}
+
+.detailBox {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-bottom: 4vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 6vw 0 12vw;
+}
+
+.detailBox > ul {
+    width: 50%;
+}
+
+span.omosa {
+    width: 23vw;
+    line-height: 23vw;
+    background: #fcffda;
+    display: inline-block;
+    border-radius: 50%;
+    font-size: 8vw;
+    text-align: center;
+    border: outset 1px pink;
+}
+
+.detailBox li.today_ml {
+    font-size: 6vw;
+    padding-left: 18vw;
+    position: relative;
+    font-weight: bold;
+}
+
+.detailBox li.today_ml small {
+    display: block;
+    font-weight: normal;
+    letter-spacing: -1px;
+    text-align: right;
+    line-height: 0.9;
+}
+.detailBox li.today_ml small {
+    position: absolute;
+    bottom: 20vw;
+    font-size: 70%;
+    right: 5vw;
+}
+ul.food {
+    /*    background: url(../img/bowl.png) 0 74% no-repeat;*/
+    background-size: 11vw;
+}
+
+.karte1 {
+    /* border-bottom: 4px dashed #ddd; */
+}
+
+ul.food a {
+    color: #555;
+    display: block;
+}
+
+ul.management {
+    padding: 1vw 1vw 1vw 4vw;
+    line-height: 1.75;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.7);
+    width: 40%;
+    border-radius: 3px;
+}
+
+ul.management li span {
+    padding-left: 1vw;
+}
+
+.topics figcaption {
+    margin-bottom: 1vw;
+    color: #949292;
+    /* text-shadow: 0 1px 0 #a27373; */
+    font-weight: 900;
+    /* -webkit-text-stroke: 1px #ffa9a9; */
+    font-size: 5vw;
+    line-height: 1.5;
+    text-indent: 1em;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+ul.management li {
+    background-size: 7.6vw;
+    padding-left: 1.8em;
+    margin-bottom: 2vw;
+    font-size: 4.2vw;
+    position: relative;
+}
+
+ul.management li:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 5vw;
+    color: #ff002d;
+}
+
+li.bodyTemp {
+    /* background: url(../img/thermometer.png) 0 0 no-repeat; */
+    /* background-size: contain; */
+    padding-left: 1.6em;
+    font-size: 5vw;
+    position: relative;
+}
+
+li.bodyTemp.icn-medical-temperature-control-tool:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 5.5vw;
+    color: #ff002d;
+    font-weight: normal;
+}
+
+li.bodyWeight span,
+li.bodyTemp span {
+    font-size: 76%;
+}
+
+.detailBox li {
+    line-height: 1.75;
+    width: 50%;
+    text-align: center;
+}
+
+.today_detail .ttl,
+span.tt,
+span.ttl {
+    font-weight: bold;
+    font-size: 6vw;
+    color: #a27373;
+    display: inline-block;
+    line-height: 1;
+}
+
+ul.bweight a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    position: relative;
+}
+span.tani {
+    display: block;
+    font-weight: normal;
+    font-size: 70%;
+    color: #555;
+}
+
+ul.bweight {
+    border: 3px dotted #ddd;
+    border-radius: 3px;
+    padding: 1%;
+    margin: 0 auto;
+}
+
+span.mvexif.icn-clock {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+a.icn-weight:before {
+    position: absolute;
+    bottom: -13vw;
+    left: 18vw;
+    font-size: 12vw;
+    color: #e88122;
+    font-weight: normal;
+    background: #f3e1e1;
+}
+
+ul.bweight.icn-weight:before {
+    font-size: 11vw;
+    position: absolute;
+    left: 1vw;
+    top: 5vw;
+    font-size: 8vw;
+    color: #e88122;
+}
+
+.mov {
+    text-align: center;
+    background: #000;
+    padding: 1vw;
+    position: relative;
+}
+
+li.today_detail {
+    font-size: 4vw;
+    margin-bottom: 2vw;
+    width: 50%;
+}
+
+ul.food li small {
+    color: #555;
+}
+
+span.tm {
+    color: #555;
+    display: block;
+    font-weight: normal;
+    font-size: 80%;
+}
+
+li.today_total {
+    font-size: 15vw;
+    text-align: center;
+    width: 35vw;
+    line-height: 35vw;
+    background: #fcffda;
+    border-radius: 50%;
+    margin: 0 auto 4vw;
+    border: 1px outset pink;
+}
+
+li.today_total .ttl {
+    font-weight: bold;
+    font-size: 4vw;
+    color: #a27373;
+    display: inline-block;
+}
+
+li.today_total small {
+    font-size: 70%;
+    font-weight: bold;
+    display: inline-block;
+    padding-left: 1vw;
+}
+
+ul.food .today_total {
+    padding-bottom: 2vw;
+    border-bottom: 2px dotted #fff;
+    padding-left: 12vw;
+    padding: 2vw 0 3vw 14vw;
+}
+
+figure.neko {
+    width: 35%;
+}
+
+.detailBox video {
+    width: 94%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    background: #000;
+    padding: 0 2%;
+    vertical-align: top;
+}
+
+ul.foodl {
+    position: relative;
+    /* padding-bottom: 12vw; */
+    width: 40%;
+    margin: 0 auto;
+}
+
+ul.foodl li:first-of-type {}
+
+.today_ml:before {
+    position: absolute;
+    font-size: 15vw;
+    left: 1vw;
+    bottom: -6vw;
+    color: #e88122;
+    font-weight: normal;
+}

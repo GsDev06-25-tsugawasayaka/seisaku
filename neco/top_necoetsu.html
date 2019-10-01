@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=No">
+    <title>ミルニャ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" type="text/css" media="all" />
+   <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-json/2.6.0/jquery.json.min.js"></script>
+    <script src="js/jquery.xdomainajax.js"></script>
+<script>
+$.ajax({
+  url: 'https://necoetsu.appspot.com/api/activities',
+  type: "GET",
+  success: function(res) {
+    console.log(res);
+  }
+});
+</script>
+
+<!--    <script src="/static/js/common.js"></script>-->
+   <title>index | neco</title>
+
+</head>
+<body>
+
+  <header>
+    <ul class="gnav">
+        <li><a href="/">top</a></li>
+        <li><a href="/">movie</a></li>
+        <li><a href="/">glaph</a></li>
+    </ul>
+</header>
+<main>
+
+
+    <article class="dashbord">
+        <h1>- カルテ -</h1>
+        <section class="karteList">
+            <div class="karte1">
+                <h1>にーな</h1>
+                <div class="personal">
+                  <div class="topics">
+                      <figure class="neko">
+                          <img src="https://niiiiiina.com/static/img/niiina.jpg" alt="niiiina">
+                          <figcaption>にーな<br>2<small>歳</small>6<small>ヶ月</small></figcaption>
+                      </figure>
+                      <ul class="management">
+                          <li class="bodyWeight icn-weight">3.22<span>kg</span></li>
+                          <li class="bodyTemp icn-medical-temperature-control-tool">38.56<span>℃</span></li>
+                          <li class="heart icn-heart">30<span>拍<small>/15s</small></span></li>
+                      </ul>
+                  </div>
+                  <div class="detailBox">
+                      <ul class="foodl icn-bowl">
+                          <a href="">
+                             <li>2017/07/16</li>
+                              <li class="today_total"><span class="tt">合計</span>200<small>ml / 日</small></li>
+                          </a>
+                      </ul>
+                      <ul class="bweight icn-weight">
+                              <a href="">
+                                  <li class="today_detail"><span class="ttl">Now</span>3.34 <small>kg</small>/ <span class="tm">18:45</span></li>
+                                  <li class="today_total"><span class="ttl">平均</span>3.23<small>kg / 日</small></li>
+                              </a>
+                          </ul>
+                          <span class="mvexif icn-clock">18:20</span>
+                         <video id="video" poster="img/IMG_5795%202.JPG" controls width="250" height="187.5" playsinline>
+                            <source src="">
+                         </video>
+                      </div>
+                  </div>
+              </div>
+             <div class="karte1">
+                <h1>ティコ</h1>
+                <div class="personal">
+                  <div class="topics">
+                      <figure class="neko">
+                          <img src="https://niiiiiina.com/static/img/tico.jpg" alt="niiiina">
+                          <figcaption>ティコ<br>14<small>歳</small>9<small>ヶ月</small></figcaption>
+                      </figure>
+                      <ul class="management">
+                          <li class="bodyWeight icn-weight">6.22<span>kg</span></li>
+                          <li class="bodyTemp icn-medical-temperature-control-tool">37.56<span>℃</span></li>
+                          <li class="heart icn-heart">35<span>拍<small>/15s</small></span></li>
+                      </ul>
+                  </div>
+                  <div class="detailBox">
+                      <ul class="foodl icn-bowl">
+                          <a href="">
+                             <li>2017/07/16</li>
+                              <li class="today_total"><span class="tt">合計</span>210<small>ml / 日</small></li>
+                          </a>
+                      </ul>
+                      <ul class="bweight icn-weight">
+                              <a href="">
+                                  <li class="today_detail"><span class="ttl">Now</span>6.34 <small>kg</small>/ <span class="tm">18:45</span></li>
+                                  <li class="today_total"><span class="ttl">平均</span>6.23<small>kg / 日</small></li>
+                              </a>
+                          </ul>
+                          <span class="mvexif icn-clock">18:20</span>
+                         <video id="video" poster="img/IMG_5795%202.JPG" controls width="250" height="187.5" playsinline>
+                            <source src="">
+                         </video>
+                      </div>
+                  </div>
+              </div>
+          </section>
+
+      </article>
+  </main>
+</body>
+</html>
